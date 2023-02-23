@@ -73,9 +73,9 @@ export default function SignInScreen({ setToken }) {
               if (!password.length || !email.length) {
                 setCheckInput("NotEmpty");
               } else {
-                setIsLoading(true);
                 setCheckInput("");
                 try {
+                  setIsLoading(true);
                   const response = await axios.post(
                     "https://lereacteur-bootcamp-api.herokuapp.com/api/airbnb/user/log_in",
                     {

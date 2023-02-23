@@ -90,9 +90,8 @@ export default function App() {
                       <Stack.Screen
                         name="Home"
                         options={{
+                          headerShown: false,
                           title: "My App",
-                          headerStyle: { backgroundColor: "red" },
-                          headerTitleStyle: { color: "white" },
                         }}
                       >
                         {() => <HomeScreen />}
@@ -102,6 +101,7 @@ export default function App() {
                         name="OfferScreen"
                         options={{
                           title: "Offre",
+                          headerShown: false,
                           headerStyle: { backgroundColor: "red" },
                           headerTitleStyle: { color: "white" },
                         }}
@@ -116,6 +116,29 @@ export default function App() {
                         }}
                       >
                         {() => <ProfileScreen />}
+                      </Stack.Screen>
+                    </Stack.Navigator>
+                  )}
+                </Tab.Screen>
+
+                <Tab.Screen
+                  name="TabAroundMe"
+                  options={{
+                    tabBarLabel: "Around Me",
+                    tabBarIcon: ({ color, size }) => (
+                      <Feather name="map-pin" size={size} color={color} />
+                    ),
+                  }}
+                >
+                  {() => (
+                    <Stack.Navigator>
+                      <Stack.Screen
+                        name="AroundMe"
+                        options={{
+                          title: "Around Me",
+                        }}
+                      >
+                        {() => <AroundMe />}
                       </Stack.Screen>
                     </Stack.Navigator>
                   )}

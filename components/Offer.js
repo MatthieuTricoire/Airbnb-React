@@ -1,9 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { Text, View, Image, StyleSheet, TouchableOpacity } from "react-native";
 
-const Offer = ({ offer, navigation }) => {
-  console.log("photo n1 de chaque annonce : " + offer.photos[0].url);
-
+const Offer = ({ offer }) => {
   const ratingValue = (offer) => {
     let a = "";
     for (let i = 0; i < offer.ratingValue; i++) {
@@ -11,10 +9,12 @@ const Offer = ({ offer, navigation }) => {
     }
     return a;
   };
+
+  const navigation = useNavigation();
   return (
     <TouchableOpacity
       style={styles.offer}
-      onPress={() => navigation.navigate("OfferScreen", { id: "test" })}
+      onPress={() => navigation.navigate("OfferScreen", { id: offer._id })}
     >
       <Image
         source={{ uri: offer.photos[0].url }}
